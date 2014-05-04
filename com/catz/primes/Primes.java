@@ -47,25 +47,25 @@ public class Primes {
            }
            pw = new PrintWriter(new FileWriter(dataFile, true));
 
-           if ("".equals(last)) {
-               pw.println("### SEARCHING FOR PRIME NUMBERS ###");
-               pw.println("### AUTHOR: Carlos Palacios (@Ito_pr) ###");
-               pw.println("");
-               pw.println("### Following numbers are primes: ");
-           }
-           Long startNumber = "".equals(last)?START_NUMBER:Long.valueOf(last)+1;
-           Long endNumber = startNumber+increment;
-           primeNumbers = PrimesUtils.getPrimes(startNumber, endNumber);
-           for (Object primeNumber : primeNumbers) {
+            if ("".equals(last)) {
+                pw.println("### SEARCHING FOR PRIME NUMBERS ###");
+                pw.println("### AUTHOR: Carlos Palacios (@Ito_pr) ###");
+                pw.println("");
+                pw.println("### Following numbers are primes: ");
+            }
+            Long startNumber = "".equals(last)?START_NUMBER:Long.valueOf(last)+1;
+            Long endNumber = startNumber+increment;
+            primeNumbers = PrimesUtils.getPrimes(startNumber, endNumber);
+            for (Object primeNumber : primeNumbers) {
                Long numero = (Long) primeNumber;
                pw.println(numero);
                pw.flush();
-           }
+            }
 
-           pw.close();
-           long tiempoFinal = TimeUtils.getTime();
-           System.out.println(primeNumbers.size()+" new prime numbers appended!");
-           TimeUtils.showElapsedTime(tiempoInicial, tiempoFinal);
+            pw.close();
+            System.out.println(primeNumbers.size()+" new prime numbers appended!");
+            long tiempoFinal = TimeUtils.getTime();
+            TimeUtils.showElapsedTime(tiempoInicial, tiempoFinal);
         } catch (Exception ioe) {
            ioe.printStackTrace();
         } finally {
